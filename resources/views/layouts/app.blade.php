@@ -5,8 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Devstagram - @yield('titulo')</title>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     </head>
-    <body class="antialiased">
+    <body>
+        <h1 class="text-3xl font-bold">
+            Hello world!
+          </h1>
     </body>
 </html>
