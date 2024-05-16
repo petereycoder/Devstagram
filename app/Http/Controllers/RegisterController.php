@@ -18,7 +18,8 @@ class RegisterController extends Controller
     {
 
       $request->request->add(['username' => Str::slug($request->username)]);
-
+      
+      //validación
       $this->validate($request, [
         'name' => 'required|max:30',
         'username' => 'required|unique:users|min:3|max:20',
@@ -32,6 +33,15 @@ class RegisterController extends Controller
         'email' => $request->email,
         'password' => Hash::make($request->password)
       ]);
+
+      //Autenticar un usuario
+      /*auth()->attempt([
+        'email' => $request->email,
+        'password' => $request->password
+      ]); */
+
+      //Otra forma de autenticar
+      auth()->attempt($request->only('email', 'password'));
 
       return redirect()->route('posts.index');
     }
