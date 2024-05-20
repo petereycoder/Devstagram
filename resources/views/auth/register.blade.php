@@ -14,7 +14,7 @@
             <form action="{{ route('register') }}" method="POST" novalidate>
                 @csrf
                 <div class="mb-5">
-                    <label id="for" class="mb-2 block uppercase text-gray-500 font-bold">
+                    <label for="name" class="mb-2 block uppercase text-gray-500 font-bold">
                         Nombre
                     </label>
                     <input 

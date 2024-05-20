@@ -28,7 +28,8 @@
                               </svg>
                               Crear
                         </a>
-                        <a class="font-bold text-gray-600 text-sm" href="#">
+                        <a class="font-bold text-gray-600 text-sm" 
+                            href="{{ route('posts.index', auth()->user()->username) }}">
                             Hola:
                             <span class="font-normal">
                                 {{ auth()->user()->username }}
