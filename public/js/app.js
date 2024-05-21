@@ -18,7 +18,24 @@ var dropzone = new dropzone__WEBPACK_IMPORTED_MODULE_0__["default"]("#dropzone",
   addRemoveLinks: true,
   dictRemoveFile: "Borrar Archivo",
   maxFiles: 1,
-  uploadMultiple: false
+  uploadMultiple: false,
+  init: function init() {
+    if (document.querySelector('[name="imagen"]').value.trim()) {
+      var imagenPublicada = {};
+      imagenPublicada.size = 1234;
+      imagenPublicada.name = document.querySelector('[name="imagen"]').value;
+      this.options.addedfile.call(this, imagenPublicada);
+      this.options.thumbnail.call(this, imagenPublicada, "/uploads/".concat(imagenPublicada.name));
+      imagenPublicada.previewElement.classList.add("dz-success", "dz-complete");
+    }
+  }
+});
+dropzone.on("success", function (file, response) {
+  console.log(response);
+  document.querySelector('[name="imagen"]').value = response.imagen;
+});
+dropzone.on("removedfile", function () {
+  document.querySelector('[name="imagen"]').value = "";
 });
 
 /***/ }),
