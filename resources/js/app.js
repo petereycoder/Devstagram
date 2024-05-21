@@ -10,3 +10,10 @@ const dropzone = new Dropzone("#dropzone", {
     uploadMultiple: false,
 
 });
+
+dropzone.on("success", function(file, response){
+    console.log(response);
+    document.querySelector('[name="imagen"]').value = response.imagen;
+});
+
+dropzone.on("removedfile", function () {});
