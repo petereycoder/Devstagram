@@ -31,13 +31,21 @@ class PostController extends Controller
             'titulo' => 'required|max:255',
             'descripcion' => 'required'
         ]);
-
+        
         Post::create([
             'titulo' => $request->titulo,
             'descripcion' => $request->descripcion,
             'imagen' => $request->imagen,
             'user_id' => auth()->user()->id
-        ]);
+        ]); 
+
+        //otra forma
+        /*$post = new Post();
+        $post->titulo = $request->titulo;
+        $post->descripcion = $request->descripcion;
+        $post->imagen = $request->imagen;
+        $post->user_id = auth()->user()->id;
+        $post->save();*/
 
         return redirect()->route('posts.index', auth()->user()->username);
     }
