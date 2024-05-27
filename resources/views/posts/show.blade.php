@@ -23,7 +23,7 @@
             @auth
                 @if ($post->user_id === auth()->user()->id)
                     <form method="POST" action="{{ route('posts.destroy', $post) }}">
-                        @method('DELETE') //Método spoofing en laravel
+                        @method('DELETE') <!--Método spoofing en laravel -->
                         @csrf
                         <input 
                             type="submit"
