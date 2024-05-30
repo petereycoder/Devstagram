@@ -57,9 +57,10 @@
                             />
                         </form>
                         <form 
-                            action=""
+                            action="{{ route('users.unfollow', $user) }}"
                             method="POST"
                         >
+                            @method('DELETE')
                             @csrf
                             <input 
                                 type="submit"
