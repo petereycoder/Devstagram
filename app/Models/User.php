@@ -63,6 +63,6 @@ class User extends Authenticatable
     //Comprobar si un usuario ya sigue a otro
     public function siguiendo(User $user)
     {
-        return $this->followers()->contains($user->id);
+        return $this->followers->contains($user->id);
     }
 }
