@@ -10,7 +10,12 @@
             <img src="{{ asset('uploads') . "/" . $post->imagen }}" alt="Imagen del post {{ $post->titulo }}">
             <div class="p-3 flex items-center gap-4">
                 @auth
-                    <livewire:like-post />
+                    @php
+                        $mensaje = "Hola mundo desde la variable!!!";
+                    @endphp
+
+                    <livewire:like-post :post="$post" />
+
                     @if ($post->checkLike(auth()->user()))
                         <form method="POST" action="{{ route('posts.like.destroy', $post) }}">
                             @method('DELETE')
